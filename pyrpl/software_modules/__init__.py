@@ -31,6 +31,7 @@ from .module_managers import (
     Pids,
     Pwms,
     Scopes,
+    Squares,
     Trigs,
 )
 from .network_analyzer import NetworkAnalyzer
@@ -63,6 +64,7 @@ __all__ = [
     "Pids",
     "Scopes",
     "Iirs",
+    "Squares",
     "Pwms",
     "Hks",
     "Trigs",

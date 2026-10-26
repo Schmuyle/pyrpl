@@ -38,4 +38,5 @@ from .pid import Pid
 from .pwm import Pwm
 from .sampler import Sampler
 from .scope import Scope
+from .square import Square
 from .trig import Trig

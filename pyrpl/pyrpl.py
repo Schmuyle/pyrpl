@@ -386,6 +386,7 @@ class Pyrpl:
             "Pids",
             "Scopes",
             "Iirs",
+            "Squares",
             "Trigs",
             "Pwms",
             "Hks",

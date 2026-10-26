@@ -195,6 +195,10 @@ class Iirs(ModuleManager):
     _widget_class = IirManagerWidget
 
 
+class Squares(ModuleManager):
+    """Manages the FPGA squaring block."""
+
+
 class Trigs(ModuleManager):
     """
     Only one trig, but it should be protected by the slave/owner mechanism.

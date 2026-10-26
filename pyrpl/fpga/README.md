@@ -43,6 +43,25 @@ The next scripts perform various tasks for the xc7z010clg400-1 part:
 | `red_pitaya_vivado_project.tcl` | creates a Vivado project for graphical editing
 | `red_pitaya_vivado.tcl`         | creates the bitstream and reports
 
+## Squaring DSP block
+
+The `square` DSP block squares a signed Q1.13 input, scales the result back to
+Q1.13, saturates at the largest positive output, and adds one clock cycle of
+latency. It can be routed like other DSP modules:
+
+```python
+from pyrpl import Pyrpl
+
+rp = Pyrpl(hostname="192.168.1.100").rp
+rp.square.input = "in1"       # or "iq0", "pid0", etc.
+rp.square.output_direct = "out1"
+rp.scope.input1 = "square"    # or route it into another DSP module
+```
+
+The block output is also available as `rp.sampler.square`. Both Vivado Tcl
+scripts include the RTL source. Rebuild and load the FPGA image before using
+the new route; Pyrpl software alone cannot add the hardware block.
+
 To generate a redpitaya.bin file for the xc7z010clg400-1 part, redpitaya.dtbo device tree, reports, run these two commands:
 ```bash
 source /opt/Xilinx/Vivado/2023.2/settings64.sh
