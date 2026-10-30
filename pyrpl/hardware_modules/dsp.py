@@ -17,24 +17,25 @@ from ..pyrpl_utils import recursive_getattr, sorted_dict
 # order here determines the order in the GUI etc.
 DSP_INPUTS = OrderedDict(
     [
-        ("in1", 11),
-        ("in2", 12),
-        ("out1", 13),
-        ("out2", 14),
+        ("in1", 12),
+        ("in2", 13),
+        ("out1", 14),
+        ("out2", 15),
         ("iq0", 5),
         ("iq1", 6),
         ("iq2", 7),
-        ("square", 8),
-        ("asg0", 9),
-        ("asg1", 10),
-        ("iq2_2", 15),
+        ("square0", 8),
+        ("square1", 9),
+        ("asg0", 10),
+        ("asg1", 11),
+        ("iq2_2", 16),
         ("pid0", 0),
         ("pid1", 1),
         ("pid2", 2),
         ("trig", 3),
         ("iir", 4),
-        # ('scope0', 9), #same as asg0 by design
-        # ('scope1', 10), #same as asg1 by design
+        # ('scope0', 10), #same as asg0 by design
+        # ('scope1', 11), #same as asg1 by design
         ("off", 31),
     ]
 )

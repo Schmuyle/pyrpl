@@ -73,7 +73,7 @@ class RedPitaya:
         + [rp.Pid] * 3
         + [rp.Trig]
         + [rp.IIR]
-        + [rp.Square]
+        + [rp.Square0, rp.Square1]
     )
 
     def __init__(

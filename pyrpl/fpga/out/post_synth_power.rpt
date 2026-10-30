@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-| Date             : Mon Oct 26 13:56:48 2026
+| Date             : Tue Oct 27 16:41:06 2026
 | Host             : DESKTOP-PBCUI9P running 64-bit major release  (build 9200)
 | Command          : report_power -file out/post_synth_power.rpt
 | Design           : red_pitaya_top
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 2.168        |
+| Total On-Chip Power (W)  | 2.174        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 2.028        |
+| Dynamic (W)              | 2.034        |
 | Device Static (W)        | 0.140        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 60.0         |
-| Junction Temperature (C) | 50.0         |
+| Max Ambient (C)          | 59.9         |
+| Junction Temperature (C) | 50.1         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -53,23 +53,23 @@ Table of Contents
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |     0.072 |       15 |       --- |             --- |
-| Slice Logic             |     0.129 |    34769 |       --- |             --- |
-|   LUT as Logic          |     0.108 |    16481 |     17600 |           93.64 |
-|   CARRY4                |     0.016 |     1468 |      4400 |           33.36 |
-|   Register              |     0.005 |    14053 |     35200 |           39.92 |
-|   F7/F8 Muxes           |    <0.001 |      264 |     17600 |            1.50 |
+| Slice Logic             |     0.131 |    35338 |       --- |             --- |
+|   LUT as Logic          |     0.110 |    16786 |     17600 |           95.38 |
+|   CARRY4                |     0.016 |     1478 |      4400 |           33.59 |
+|   Register              |     0.005 |    14072 |     35200 |           39.98 |
+|   F7/F8 Muxes           |    <0.001 |      464 |     17600 |            2.64 |
 |   LUT as Shift Register |    <0.001 |       51 |      6000 |            0.85 |
-|   Others                |     0.000 |      439 |       --- |             --- |
+|   Others                |     0.000 |      443 |       --- |             --- |
 |   BUFG                  |     0.000 |        1 |        32 |            3.13 |
-| Signals                 |     0.128 |    30555 |       --- |             --- |
+| Signals                 |     0.130 |    30684 |       --- |             --- |
 | Block RAM               |     0.103 |       34 |        60 |           56.67 |
 | PLL                     |     0.097 |        1 |         2 |           50.00 |
-| DSPs                    |     0.043 |       47 |        80 |           58.75 |
-| I/O                     |     0.160 |       91 |       100 |           91.00 |
+| DSPs                    |     0.045 |       48 |        80 |           60.00 |
+| I/O                     |     0.161 |       91 |       100 |           91.00 |
 | XADC                    |     0.004 |        1 |       --- |             --- |
 | PS7                     |     1.292 |        1 |       --- |             --- |
 | Static Power            |     0.140 |          |           |                 |
-| Total                   |     2.167 |          |           |                 |
+| Total                   |     2.173 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -79,7 +79,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.485 |       0.475 |      0.010 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.490 |       0.480 |      0.010 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.064 |       0.055 |      0.009 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.046 |       0.045 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -166,7 +166,7 @@ Table of Contents
 +-----------------------------+-----------+
 | Name                        | Power (W) |
 +-----------------------------+-----------+
-| red_pitaya_top              |     2.028 |
+| red_pitaya_top              |     2.033 |
 |   i_ams                     |     0.001 |
 |   i_asg                     |     0.060 |
 |     adv_trig_a              |     0.001 |
@@ -174,7 +174,7 @@ Table of Contents
 |     ch[0]                   |     0.025 |
 |     ch[1]                   |     0.025 |
 |     prng                    |     0.002 |
-|   i_dsp                     |     0.323 |
+|   i_dsp                     |     0.328 |
 |     genblk4[0].i_pid        |     0.022 |
 |       pidfilter             |     0.011 |
 |     genblk4[1].i_pid        |     0.022 |
@@ -208,7 +208,8 @@ Table of Contents
 |       iqfilter[0]           |     0.016 |
 |       iqfilter[1]           |     0.016 |
 |       modulator             |     0.012 |
-|     square                  |     0.002 |
+|     square0                 |     0.002 |
+|     square1                 |     0.002 |
 |   i_hk                      |     0.001 |
 |   i_ps                      |     1.318 |
 |     axi_slave_gp0           |     0.002 |

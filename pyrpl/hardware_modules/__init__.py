@@ -38,5 +38,5 @@ from .pid import Pid
 from .pwm import Pwm
 from .sampler import Sampler
 from .scope import Scope
-from .square import Square
+from .square import Square, Square0, Square1
 from .trig import Trig

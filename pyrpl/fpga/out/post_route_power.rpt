@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-| Date             : Mon Oct 26 14:01:22 2026
+| Date             : Tue Oct 27 16:47:19 2026
 | Host             : DESKTOP-PBCUI9P running 64-bit major release  (build 9200)
 | Command          : report_power -file out/post_route_power.rpt
 | Design           : red_pitaya_top
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 2.176        |
+| Total On-Chip Power (W)  | 2.197        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 2.036        |
+| Dynamic (W)              | 2.057        |
 | Device Static (W)        | 0.140        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 59.9         |
-| Junction Temperature (C) | 50.1         |
+| Max Ambient (C)          | 59.7         |
+| Junction Temperature (C) | 50.3         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -53,22 +53,22 @@ Table of Contents
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |     0.064 |       14 |       --- |             --- |
-| Slice Logic             |     0.118 |    35090 |       --- |             --- |
-|   LUT as Logic          |     0.102 |    16349 |     17600 |           92.89 |
-|   CARRY4                |     0.011 |     1468 |      4400 |           33.36 |
-|   Register              |     0.005 |    14309 |     35200 |           40.65 |
-|   F7/F8 Muxes           |    <0.001 |      264 |     17600 |            1.50 |
+| Slice Logic             |     0.120 |    35659 |       --- |             --- |
+|   LUT as Logic          |     0.103 |    16622 |     17600 |           94.44 |
+|   CARRY4                |     0.011 |     1476 |      4400 |           33.55 |
+|   Register              |     0.005 |    14336 |     35200 |           40.73 |
+|   F7/F8 Muxes           |    <0.001 |      464 |     17600 |            2.64 |
 |   LUT as Shift Register |    <0.001 |       43 |      6000 |            0.72 |
-|   Others                |     0.000 |      404 |       --- |             --- |
-| Signals                 |     0.161 |    29130 |       --- |             --- |
+|   Others                |     0.000 |      409 |       --- |             --- |
+| Signals                 |     0.179 |    29279 |       --- |             --- |
 | Block RAM               |     0.094 |       34 |        60 |           56.67 |
 | PLL                     |     0.097 |        1 |         2 |           50.00 |
-| DSPs                    |     0.045 |       47 |        80 |           58.75 |
-| I/O                     |     0.160 |       91 |       100 |           91.00 |
+| DSPs                    |     0.046 |       48 |        80 |           60.00 |
+| I/O                     |     0.161 |       91 |       100 |           91.00 |
 | XADC                    |     0.004 |        1 |       --- |             --- |
 | PS7                     |     1.292 |        1 |       --- |             --- |
 | Static Power            |     0.140 |          |           |                 |
-| Total                   |     2.176 |          |           |                 |
+| Total                   |     2.197 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -78,7 +78,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.494 |       0.484 |      0.010 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.514 |       0.504 |      0.010 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.064 |       0.055 |      0.009 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.046 |       0.045 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -91,7 +91,7 @@ Table of Contents
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccpint   |       1.000 |     0.714 |       0.678 |      0.036 |       NA    | Unspecified | NA         |
+| Vccpint   |       1.000 |     0.715 |       0.678 |      0.037 |       NA    | Unspecified | NA         |
 | Vccpaux   |       1.800 |     0.038 |       0.027 |      0.010 |       NA    | Unspecified | NA         |
 | Vccpll    |       1.800 |     0.017 |       0.014 |      0.003 |       NA    | Unspecified | NA         |
 | Vcco_ddr  |       1.500 |     0.356 |       0.354 |      0.002 |       NA    | Unspecified | NA         |
@@ -161,62 +161,63 @@ Table of Contents
 +-----------------------------+-----------+
 | Name                        | Power (W) |
 +-----------------------------+-----------+
-| red_pitaya_top              |     2.036 |
-|   i_ams                     |     0.001 |
-|   i_asg                     |     0.060 |
+| red_pitaya_top              |     2.056 |
+|   i_ams                     |     0.002 |
+|   i_asg                     |     0.061 |
 |     adv_trig_a              |     0.001 |
 |     ch[0]                   |     0.026 |
-|     ch[1]                   |     0.026 |
+|     ch[1]                   |     0.027 |
 |     prng                    |     0.001 |
-|   i_dsp                     |     0.340 |
+|   i_dsp                     |     0.356 |
 |     dac_saturate[0]         |     0.002 |
 |     dac_saturate[1]         |     0.002 |
-|     genblk4[0].i_pid        |     0.023 |
-|       pidfilter             |     0.011 |
-|     genblk4[1].i_pid        |     0.023 |
+|     genblk4[0].i_pid        |     0.024 |
+|       pidfilter             |     0.013 |
+|     genblk4[1].i_pid        |     0.024 |
 |       pidfilter             |     0.012 |
-|     genblk4[2].i_pid        |     0.023 |
-|       pidfilter             |     0.011 |
-|     genblk5[3].i_trigger    |     0.007 |
-|       triggerfilter         |     0.003 |
-|     genblk6[4].iir          |     0.038 |
+|     genblk4[2].i_pid        |     0.024 |
+|       pidfilter             |     0.012 |
+|     genblk5[3].i_trigger    |     0.008 |
+|       triggerfilter         |     0.004 |
+|     genblk6[4].iir          |     0.040 |
 |       iir_inputfilter       |     0.002 |
 |       p_ay1_module          |     0.003 |
 |       p_bx1_module          |     0.003 |
-|       s_y0_module           |     0.005 |
-|     genblk7[5].iq           |     0.059 |
+|       s_y0_module           |     0.006 |
+|     genblk7[5].iq           |     0.060 |
+|       demodulator           |     0.003 |
+|       inputfilter           |     0.003 |
+|       iq_fgen               |     0.016 |
+|       iqfilter[0]           |     0.010 |
+|       iqfilter[1]           |     0.010 |
+|       modulator             |     0.010 |
+|     genblk7[6].iq           |     0.060 |
+|       demodulator           |     0.003 |
+|       inputfilter           |     0.003 |
+|       iq_fgen               |     0.016 |
+|       iqfilter[0]           |     0.010 |
+|       iqfilter[1]           |     0.010 |
+|       modulator             |     0.010 |
+|     genblk8[7].iq_2_outputs |     0.082 |
 |       demodulator           |     0.003 |
 |       inputfilter           |     0.003 |
 |       iq_fgen               |     0.017 |
-|       iqfilter[0]           |     0.010 |
-|       iqfilter[1]           |     0.010 |
-|       modulator             |     0.010 |
-|     genblk7[6].iq           |     0.059 |
-|       demodulator           |     0.003 |
-|       inputfilter           |     0.003 |
-|       iq_fgen               |     0.016 |
-|       iqfilter[0]           |     0.010 |
-|       iqfilter[1]           |     0.010 |
-|       modulator             |     0.010 |
-|     genblk8[7].iq_2_outputs |     0.079 |
-|       demodulator           |     0.003 |
-|       inputfilter           |     0.003 |
-|       iq_fgen               |     0.016 |
-|       iqfilter[0]           |     0.018 |
-|       iqfilter[1]           |     0.018 |
+|       iqfilter[0]           |     0.019 |
+|       iqfilter[1]           |     0.019 |
 |       modulator             |     0.012 |
-|     square                  |     0.002 |
+|     square0                 |     0.002 |
+|     square1                 |     0.003 |
 |   i_hk                      |     0.001 |
-|   i_ps                      |     1.317 |
+|   i_ps                      |     1.318 |
 |     axi_slave_gp0           |     0.004 |
-|     system_i                |     1.312 |
-|       system_i              |     1.312 |
-|   i_scope                   |     0.046 |
+|     system_i                |     1.313 |
+|       system_i              |     1.313 |
+|   i_scope                   |     0.047 |
 |   pll                       |     0.097 |
-|   pwm[0]                    |     0.002 |
-|   pwm[1]                    |     0.002 |
+|   pwm[0]                    |     0.001 |
+|   pwm[1]                    |     0.001 |
 |   pwm[2]                    |     0.002 |
-|   pwm[3]                    |     0.002 |
+|   pwm[3]                    |     0.001 |
 +-----------------------------+-----------+
 
 

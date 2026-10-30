@@ -52,7 +52,7 @@ should not be used.
 
 
 module red_pitaya_dsp #(
-	parameter MODULES = 9
+	parameter MODULES = 10
 )
 (
    // signals
@@ -106,7 +106,8 @@ localparam IIR   = 'd4; //IIR filter to connect in series to PID module
 localparam IQ0   = 'd5; //for PDH signal generation
 localparam IQ1   = 'd6; //for NA functionality
 localparam IQ2   = 'd7; //for PFD error signal
-localparam SQUARE = 'd8;
+localparam SQUARE0 = 'd8;
+localparam SQUARE1 = 'd9;
 localparam NONE = 2**LOG_MODULES-1; //code for no module; only used to switch off PWM outputs
 
 //EXTRAMODULE numbers
@@ -274,8 +275,11 @@ always @(posedge clk_i) begin
       input_select [IQ2] <= ADC1;
       output_select[IQ2] <= OFF;
 
-      input_select [SQUARE] <= ADC1;
-      output_select[SQUARE] <= OFF;
+      input_select [SQUARE0] <= ADC1;
+      output_select[SQUARE0] <= OFF;
+
+      input_select [SQUARE1] <= ADC1;
+      output_select[SQUARE1] <= OFF;
 
       input_select [SCOPE1] <= ADC1;
       input_select [SCOPE2] <= ADC2;
@@ -401,16 +405,26 @@ generate for (j = 4; j < 5; j = j+1) begin
 	  assign output_signal[j] = output_direct[j];
 end endgenerate
 
-// Square block
-red_pitaya_square square (
+// Square blocks
+red_pitaya_square square0 (
    .clk_i  (clk_i),
    .rstn_i (rstn_i),
-   .dat_i  (input_signal[SQUARE]),
-   .dat_o  (output_direct[SQUARE])
+   .dat_i  (input_signal[SQUARE0]),
+   .dat_o  (output_direct[SQUARE0])
 );
-assign output_signal[SQUARE] = output_direct[SQUARE];
-assign module_ack[SQUARE] = 1'b0;
-assign module_rdata[SQUARE] = 32'b0;
+assign output_signal[SQUARE0] = output_direct[SQUARE0];
+assign module_ack[SQUARE0] = 1'b0;
+assign module_rdata[SQUARE0] = 32'b0;
+
+red_pitaya_square square1 (
+   .clk_i  (clk_i),
+   .rstn_i (rstn_i),
+   .dat_i  (input_signal[SQUARE1]),
+   .dat_o  (output_direct[SQUARE1])
+);
+assign output_signal[SQUARE1] = output_direct[SQUARE1];
+assign module_ack[SQUARE1] = 1'b0;
+assign module_rdata[SQUARE1] = 32'b0;
 
 // IQ modules
 generate for (j = 5; j < 7; j = j+1) begin
